@@ -1,0 +1,18 @@
+.cadastroForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+}
+
+.teste{
+    border-radius: 11px;
+    padding-right: 105px;
+    background-color: yellow;
+    position: relative;
+    margin: 10px;
+    /* top: 10px; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}

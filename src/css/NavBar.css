@@ -1,0 +1,35 @@
+.bg-body-tertiary{
+    background-color: #7E83A2 !important;
+}
+
+.navBarLink{
+    text-decoration: none;
+    color: #B8AA7F !important;
+}
+
+.dropdown-menu{
+    background-color: #7E83A2 !important;
+
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #B8AA7F;
+}
+
+.nav-link:hover{
+    color: #F7D66D;
+}
+
+
+.nav-link:hover{
+    color: #F7D66D;
+}
+
+.dropdown-item{
+    color: #B8AA7F !important;
+}
+
+.navbar-brand{
+    color: #B8AA7F !important;
+}

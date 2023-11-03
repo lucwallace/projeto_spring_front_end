@@ -22,6 +22,10 @@ class UsuarioService {
         return http.delete(`usuarios/${id}`);
     }
 
+    getFindTipoUsuario(){
+        return http.get("/tipoUsuario");
+    }
+
 }
 
 export default new UsuarioService();
