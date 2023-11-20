@@ -16,3 +16,27 @@
     padding-bottom: 20px;
 
 }
+
+.formLogin{
+    width: 376px;
+}
+
+#fields_nome{
+    margin-bottom: 10px;
+}
+
+#fields_email{
+    margin-bottom: 10px;
+}
+
+#fields_tipo{
+    margin-bottom: 10px;
+}
+
+#fields_button{
+    margin-bottom: 10px;
+}
+
+#btn_cadastrar{
+    width: 376px;
+}

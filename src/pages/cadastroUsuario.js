@@ -15,13 +15,8 @@ import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import AlertPage from '../components/alert-component/alert'
-
-
-
-const selectData = ['Pessoa Física', 'Pessoa Jurídica', 'Linda', 'Nancy', 'Lloyd', 'Alice'].map(item => ({
-  label: item,
-  value: item
-}));
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class CadastroUsuario extends Component {
   constructor(props) {
@@ -36,8 +31,8 @@ export default class CadastroUsuario extends Component {
       nome: '',
       email: "",
       tipo: "",
-      enderecoId: 1,
       submitted: false,
+      resposta: 1,
       tipoUsuario: []
     };
   }
@@ -74,11 +69,11 @@ export default class CadastroUsuario extends Component {
     var data = {
       nome: this.state.nome,
       email: this.state.email,
-      tipo: this.state.idTipo,
-      enderecoId: 95
+      tipo: this.state.idTipo
     }
     console.log(data)
     console.log("Teste " + this.state.tipoUsuario);
+    toast.success("Cadastro de usuário realizado com sucesso!!!");
 
     UsuarioService.create(data)
       .then(response => {
@@ -87,11 +82,15 @@ export default class CadastroUsuario extends Component {
           nome: response.data.nome,
           email: response.data.email,
           tipo: response.data.idTipo,
-          enderecoId: response.data.enderecoId
+
+
+          submitted: true
         });
+        console.log("Responde " + this.state.submitted)
       })
       .catch(e => {
         console.log(e)
+        toast.error("ERROR AO REALIZAR O CADASTRO DE USUÁRIO!!!");
       })
   }
 
@@ -100,7 +99,6 @@ export default class CadastroUsuario extends Component {
     return (
       <Container>
         <CssBaseline />
-        <AlertPage name="success"/>
         <Box sx={{
           marginTop: 8,
           display: 'flex',
@@ -108,16 +106,23 @@ export default class CadastroUsuario extends Component {
           alignItems: 'center'
         }}>
 
-          <Box component="form" noValidate sx={{ mt: 3 }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+
+          <Box component="form" className="formLogin" noValidate sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid id="fields_nome" item xs={12}>
                 <TextField id="nome" label="Nome" variant="outlined"
                   fullWidth
                   name="nome" value={this.state.nome}
                   onChange={this.onChangeNome} />
               </Grid>
             </Grid>
-            <Grid item xs={12}>
+            <Grid id="fields_email" item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -131,7 +136,7 @@ export default class CadastroUsuario extends Component {
                 onChange={this.onChangeEmail}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid id="fields_tipo" item xs={12}>
               <InputLabel id="tipo-label">Tipo</InputLabel>
               <Select
                 labelId="tipo-label"
@@ -147,8 +152,9 @@ export default class CadastroUsuario extends Component {
                 }
               </Select>
             </Grid>
-            <Grid item xs={12}>
-              <Button onClick={this.saveUsuario} variant="contained">Criar usuário</Button>
+            <Grid id="fields_button" item xs={12}>
+              <Button id="btn_cadastrar" onClick={this.saveUsuario} variant="contained">Criar usuário</Button>
+              <ToastContainer />
             </Grid>
           </Box>
         </Box>
