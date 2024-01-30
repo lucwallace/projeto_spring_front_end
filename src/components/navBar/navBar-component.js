@@ -3,12 +3,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import '../../css/NavBar.css';
+
+import Register from "../../pages/components/register-component/Register"
 
 function navBarComponent() {
   return (
-    <>
+    <Router>
       <div>
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
           <Container>
@@ -37,14 +39,21 @@ function navBarComponent() {
                   <Link className='navBarLink' to={"/login"}>Login</Link>
                 </Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
-                  <Link className='navBarLink' to={"/cadastroUsuario"}>Cadastro de Usuário</Link>
+                  <Link className='navBarLink' to={"/testando"}>Cadastro de Usuário</Link>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
+
+        <div className="container mt-3">
+          <Routes>
+            <Route path="/testando" element={<Register />} />
+          </Routes>
+        </div>
+
       </div>
-    </>
+      </Router>
   );
 }
 
