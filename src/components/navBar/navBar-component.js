@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import '../../css/NavBar.css';
 
 import Register from "../../pages/components/register-component/Register"
+import Login from "../../pages/components/login-component/Login"
 
 function navBarComponent() {
   return (
@@ -39,7 +40,7 @@ function navBarComponent() {
                   <Link className='navBarLink' to={"/login"}>Login</Link>
                 </Nav.Link>
                 <Nav.Link eventKey={2} href="#memes">
-                  <Link className='navBarLink' to={"/testando"}>Cadastro de Usuário</Link>
+                  <Link className='navBarLink' to={"/Register"}>Cadastro de Usuário</Link>
                 </Nav.Link>
               </Nav>
             </Navbar.Collapse>
@@ -48,7 +49,8 @@ function navBarComponent() {
 
         <div className="container mt-3">
           <Routes>
-            <Route path="/testando" element={<Register />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
 
