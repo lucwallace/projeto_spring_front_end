@@ -10,8 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Wallpaper from "../../../assets/imgs/ford-mustang.jpg"
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Register from "../register-component/Register"
+import { Link } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -110,7 +109,7 @@ export default function SignInSide() {
                   </Link>
                 </Grid>
                 <Grid item>
-                  <Link className='navBarLink' to={"/Register"}>Não tem uma conta? Inscrever-se</Link>
+                  <Link className='navBarLink' to={"/register"}>Não tem uma conta? Inscrever-se</Link>
                 </Grid>
               </Grid>
               <Copyright sx={{ mt: 5 }} />

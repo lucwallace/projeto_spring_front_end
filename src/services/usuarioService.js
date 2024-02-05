@@ -1,31 +1,36 @@
-import http from "../config/http-common";
+import axios from "axios";
+import authHeader from "./authHeader";
 
-class UsuarioService {
+const API_URL = "http://localhost:8081/api/test/";
 
-    getAll(){
-        return http.get("/usuarios");
-    }
+const getPublicContent = () => {
+  return axios.get(API_URL + "all");
+};
 
-    get(id){
-        return http.get(`/usuarios/${id}`);
-    }
+const getUserBoard = () => {
 
-    create(data){
-        return http.post("/usuarios/", data);
-    }
+  const teste = JSON.parse(localStorage.getItem('user'));
 
-    update(id, data){
-        return http.put(`/usuarios/${id}`, data);
-    }
+  //const teeee = 'Bearer ' + teste.acessToken;
 
-    delete(id){
-        return http.delete(`usuarios/${id}`);
-    }
+  console.log("Testando 2" + teste.accessToken)
 
-    getFindTipoUsuario(){
-        return http.get("/tipoUsuario");
-    }
+  return axios.get(API_URL + "user", { headers: authHeader() });
+};
 
-}
+const getModeratorBoard = () => {
+  return axios.get(API_URL + "mod", { headers: authHeader() });
+};
 
-export default new UsuarioService();
+const getAdminBoard = () => {
+  return axios.get(API_URL + "admin", { headers: authHeader() });
+};
+
+const userService = {
+  getPublicContent,
+  getUserBoard,
+  getModeratorBoard,
+  getAdminBoard,
+};
+
+export default userService
