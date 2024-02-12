@@ -6,13 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import '../../css/NavBar.css';
 
-function navBarComponent() {
+function navBarComponent({teste}) {
   return (
     <div>
       <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
         <Container>
           <Navbar.Brand href="#home">
-            <Link className='navBarLink' to={"/"}>Nome do site</Link>
+            <Link className='navBarLink' to={"/"}>{teste}</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
