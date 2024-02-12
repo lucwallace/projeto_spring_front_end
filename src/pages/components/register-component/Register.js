@@ -93,8 +93,11 @@ export default function SignIn() {
       })
       .catch(() => {
         setSuccessful(false);
-        toast.error(message)
+       // toast.error(message)
         console.log("Testando025 "+message)
+        setTimeout(() => {
+          console.log("Testando025lk "+message)
+        }, 6000);
       });
   };
 
@@ -147,7 +150,6 @@ export default function SignIn() {
             />
             <TextField
               margin="normal"
-              required
               fullWidth
               name="password"
               label="password"
@@ -162,7 +164,6 @@ export default function SignIn() {
             />
             <TextField
               margin="normal"
-              required
               fullWidth
               name="confirmPassword"
               label="Confirmar a senha"

@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { setMessage } from "./message";
 
 import AuthService from "../services/autenticacaoService";
+import { ToastContainer, toast } from 'react-toastify';
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -23,6 +24,7 @@ export const register = createAsyncThunk(
         error.toString();
       thunkAPI.dispatch(setMessage(message));
       console.log(message)
+      toast.error(message)
       return thunkAPI.rejectWithValue();
     }
   }
